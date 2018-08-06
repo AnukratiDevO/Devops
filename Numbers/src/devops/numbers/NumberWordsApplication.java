@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public final class NumberWordsApplication {
-	private final NumberWords numberWords ;
 	private final BufferedReader reader ;
+	private NumberWords numberWords ;
 	
 	public NumberWordsApplication() {
-		numberWords = new NumberWords() ;
+		numberWords = new NumberWords();
 		reader = new BufferedReader( new InputStreamReader( System.in ) ) ;
 	}
 	
@@ -19,7 +19,16 @@ public final class NumberWordsApplication {
 				System.out.print( "Enter number (0 to exit): " ) ;
 				String value = reader.readLine() ;
 				int number = Integer.parseInt( value ) ;
-			} catch ( NumberFormatException | IOException e ) {
+				if(number ==0){
+					System.out.println("Exiting..");
+					break;
+				}
+				else{
+			//String result=NumberWords.toWords(number);
+			System.out.println(numberWords.toWords(number));}
+			
+			}
+			catch ( NumberFormatException | IOException e ) {
 				System.out.println( "Invalid number" ) ;
 			}
 		}
